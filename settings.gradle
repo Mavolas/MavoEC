@@ -1,0 +1,1 @@
+include ':app', ':mavo-core', ':mavo-ec', ':mavo-annotations', ':mavo-compiler'
