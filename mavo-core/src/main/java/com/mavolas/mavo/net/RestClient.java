@@ -7,6 +7,7 @@ import com.mavolas.mavo.net.callback.IFailure;
 import com.mavolas.mavo.net.callback.IRequest;
 import com.mavolas.mavo.net.callback.ISuccess;
 import com.mavolas.mavo.net.callback.RequestCallbacks;
+import com.mavolas.mavo.net.download.DownloadHandler;
 import com.mavolas.mavo.ui.LoaderStyle;
 import com.mavolas.mavo.ui.MavoLoader;
 
@@ -29,6 +30,9 @@ public class RestClient {
     private final String URL;
     private static final WeakHashMap<String,Object> PARAMS = RestCreator.getParams();
     private final IRequest REQUEST;
+    private final String DOWNLOAD_DIR;
+    private final String EXTENSION;
+    private final String NAME;
     private final ISuccess SUCCESS;
     private final IFailure FAILURE;
     private final IError ERROR;
@@ -38,7 +42,9 @@ public class RestClient {
     private final Context CONTEXT;
 
     public RestClient(String url, Map <String, Object> params, IRequest request, ISuccess success
-            , IFailure failure, IError error, RequestBody body, File file, LoaderStyle loaderStyle, Context context) {
+            , IFailure failure, IError error, RequestBody body, File file, String download_dir, String extension, String name
+            , LoaderStyle loaderStyle, Context context) {
+
         this.URL = url;
         PARAMS.putAll( params );
         this.REQUEST = request;
@@ -48,6 +54,9 @@ public class RestClient {
         this.BODY = body;
         this.LOADER_STYLE = loaderStyle;
         this.FILE = file;
+        this.DOWNLOAD_DIR = download_dir;
+        this.EXTENSION = extension;
+        this.NAME = name;
         this.CONTEXT = context;
     }
 
@@ -143,6 +152,16 @@ public class RestClient {
 
     public final void delete(){
         request( HttpMethod.DELETE );
+    }
+
+    public final void upload(){
+        request( HttpMethod.UPLOAD );
+    }
+
+    public final void download(){
+
+        new DownloadHandler( URL, REQUEST, DOWNLOAD_DIR, EXTENSION, NAME, SUCCESS, FAILURE, ERROR)
+                .HandleDownload();
     }
  }
 

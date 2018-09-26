@@ -21,18 +21,19 @@ import okhttp3.RequestBody;
  */
 public class RestClientBuilder {
 
-    private  String mUrl = null;
-    private  Map<String,Object> PARAMS = RestCreator.getParams();
-    private  IRequest mRequest = null;
-    private  ISuccess mSuccess = null;
-    private  IFailure mFailure = null;
-    private  IError mError = null;
-    private  RequestBody mBody = null;
+    private String mUrl = null;
+    private Map<String,Object> PARAMS = RestCreator.getParams();
+    private IRequest mRequest = null;
+    private ISuccess mSuccess = null;
+    private IFailure mFailure = null;
+    private IError mError = null;
+    private RequestBody mBody = null;
     private File mFile = null;
+    private String mDownload_dir;
+    private String mExtension;
+    private String mName;
     private Context mContext = null;
     private LoaderStyle mLoaderStyle = null;
-
-
 
     public RestClientBuilder() {
     }
@@ -58,6 +59,21 @@ public class RestClientBuilder {
     public final RestClientBuilder file(File file){
 
         this.mFile = file;
+        return this;
+    }
+
+    public final RestClientBuilder name(String name) {
+        this.mName = name;
+        return this;
+    }
+
+    public final RestClientBuilder dir(String dir) {
+        this.mDownload_dir = dir;
+        return this;
+    }
+
+    public final RestClientBuilder extension(String extension) {
+        this.mExtension = extension;
         return this;
     }
 
@@ -115,7 +131,9 @@ public class RestClientBuilder {
 
     public final RestClient build(){
 
-        return new RestClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError ,mBody ,mFile,mLoaderStyle, mContext );
+        return new RestClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError ,mBody ,mFile
+                ,mDownload_dir, mExtension ,mName ,mLoaderStyle, mContext );
+
     }
 
 
