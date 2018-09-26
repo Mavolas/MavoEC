@@ -1,10 +1,14 @@
 package com.mavolas.mavo.net;
 
+import android.content.Context;
+
 import com.mavolas.mavo.net.callback.IError;
 import com.mavolas.mavo.net.callback.IFailure;
 import com.mavolas.mavo.net.callback.IRequest;
 import com.mavolas.mavo.net.callback.ISuccess;
 import com.mavolas.mavo.net.callback.RequestCallbacks;
+import com.mavolas.mavo.ui.LoaderStyle;
+import com.mavolas.mavo.ui.MavoLoader;
 
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -12,7 +16,6 @@ import java.util.WeakHashMap;
 import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
-import retrofit2.Response;
 
 /**
  * Created by 宋棋安
@@ -27,9 +30,11 @@ public class RestClient {
     private final IFailure FAILURE;
     private final IError ERROR;
     private final RequestBody BODY;
+    private final LoaderStyle LOADER_STYLE;
+    private final Context CONTEXT;
 
     public RestClient(String url, Map <String, Object> params, IRequest request, ISuccess success
-            , IFailure failure, IError error, RequestBody body) {
+            , IFailure failure, IError error, RequestBody body,LoaderStyle loaderStyle ,Context context) {
         this.URL = url;
         PARAMS.putAll( params );
         this.REQUEST = request;
@@ -37,6 +42,8 @@ public class RestClient {
         this.FAILURE = failure;
         this.ERROR = error;
         this.BODY = body;
+        this.LOADER_STYLE = loaderStyle;
+        this.CONTEXT = context;
     }
 
     public static RestClientBuilder builder(){
@@ -52,6 +59,10 @@ public class RestClient {
 
         if ( REQUEST != null ){
             REQUEST.onRequestStart();
+        }
+
+        if ( LOADER_STYLE !=null ){
+            MavoLoader.showLoading( CONTEXT, LOADER_STYLE );
         }
 
         switch (method){
@@ -83,7 +94,7 @@ public class RestClient {
 
     private Callback<String> getRequestCallback(){
 
-        return new RequestCallbacks( REQUEST, SUCCESS, FAILURE, ERROR );
+        return new RequestCallbacks( REQUEST, SUCCESS, FAILURE, ERROR, LOADER_STYLE);
     }
 
     public final void get(){

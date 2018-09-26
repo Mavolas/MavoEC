@@ -1,11 +1,13 @@
 package com.mavolas.mavo.net;
 
+import android.content.Context;
+
 import com.mavolas.mavo.net.callback.IError;
 import com.mavolas.mavo.net.callback.IFailure;
 import com.mavolas.mavo.net.callback.IRequest;
 import com.mavolas.mavo.net.callback.ISuccess;
+import com.mavolas.mavo.ui.LoaderStyle;
 
-import java.lang.annotation.Target;
 import java.util.Map;
 import java.util.WeakHashMap;
 
@@ -18,13 +20,15 @@ import okhttp3.RequestBody;
  */
 public class RestClientBuilder {
 
-    private  String mUrl;
+    private  String mUrl = null;
     private  Map<String,Object> PARAMS = RestCreator.getParams();
-    private  IRequest mRequest;
-    private  ISuccess mSuccess;
-    private  IFailure mFailure;
-    private  IError mError;
-    private  RequestBody mBody;
+    private  IRequest mRequest = null;
+    private  ISuccess mSuccess = null;
+    private  IFailure mFailure = null;
+    private  IError mError = null;
+    private  RequestBody mBody = null;
+    private Context mContext = null;
+    private LoaderStyle mLoaderStyle = null;
 
 
     public RestClientBuilder() {
@@ -79,10 +83,24 @@ public class RestClientBuilder {
         return this;
     }
 
+    public final RestClientBuilder loader(Context context, LoaderStyle style){
+
+        this.mContext = context;
+        this.mLoaderStyle = style;
+        return this;
+    }
+
+    public final RestClientBuilder loader(Context context){
+
+        this.mContext = context;
+        this.mLoaderStyle = LoaderStyle.BallClipRotatePulseIndicator;
+        return this;
+    }
+
 
     public final RestClient build(){
 
-        return new RestClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError ,mBody  );
+        return new RestClient(mUrl, PARAMS, mRequest, mSuccess, mFailure, mError ,mBody ,mLoaderStyle, mContext );
     }
 
 

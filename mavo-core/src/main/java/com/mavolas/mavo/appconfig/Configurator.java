@@ -87,7 +87,7 @@ public class Configurator {
 
 
     @SuppressWarnings( "unchecked" )
-    final <T> T getComfiguration(Enum<ConfigType> key){
+    final <T> T getConfiguration(Enum<ConfigType> key){
 
         checkConfiguration();
         return ( T ) MAVO_CONFIGS.get( key.name() );

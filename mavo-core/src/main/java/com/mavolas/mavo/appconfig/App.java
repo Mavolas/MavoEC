@@ -22,4 +22,16 @@ public final class App {
 
         return Configurator.getInstance().getMavoConfigs();
     }
+
+    public static Configurator getConfigurator() {
+        return Configurator.getInstance();
+    }
+
+    public static <T> T getConfiguration(Enum<ConfigType> key) {
+        return getConfigurator().getConfiguration(key);
+    }
+
+    public static Context getApplicationContext() {
+        return getConfiguration(ConfigType.APPLICATION_CONTEXT);
+    }
 }
