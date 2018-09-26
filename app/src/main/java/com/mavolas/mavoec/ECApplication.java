@@ -19,7 +19,7 @@ public class ECApplication extends Application {
         App.init( this )
                 .withIcon( new FontAwesomeModule() )
                 .withIcon( new FontEcModule() )
-                .withApiHost( "http" )
+                .withApiHost( "http://127.0.0.1/" )
                 .configure();
     }
 }
