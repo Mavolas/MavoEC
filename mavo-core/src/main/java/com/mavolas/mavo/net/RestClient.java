@@ -8,8 +8,8 @@ import com.mavolas.mavo.net.callback.IRequest;
 import com.mavolas.mavo.net.callback.ISuccess;
 import com.mavolas.mavo.net.callback.RequestCallbacks;
 import com.mavolas.mavo.net.download.DownloadHandler;
-import com.mavolas.mavo.ui.LoaderStyle;
-import com.mavolas.mavo.ui.MavoLoader;
+import com.mavolas.mavo.ui.loader.LoaderStyle;
+import com.mavolas.mavo.ui.loader.MavoLoader;
 
 import java.io.File;
 import java.util.Map;

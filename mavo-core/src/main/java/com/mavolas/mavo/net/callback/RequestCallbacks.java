@@ -2,8 +2,8 @@ package com.mavolas.mavo.net.callback;
 
 import android.os.Handler;
 
-import com.mavolas.mavo.ui.LoaderStyle;
-import com.mavolas.mavo.ui.MavoLoader;
+import com.mavolas.mavo.ui.loader.LoaderStyle;
+import com.mavolas.mavo.ui.loader.MavoLoader;
 
 import retrofit2.Call;
 import retrofit2.Callback;

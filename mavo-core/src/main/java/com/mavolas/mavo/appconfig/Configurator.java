@@ -6,14 +6,17 @@ import com.joanzapata.iconify.Iconify;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import okhttp3.Interceptor;
+
 /**
  * Created by 宋棋安
  * on 2018/9/20.
  */
 public class Configurator {
 
-    private static final HashMap<String,Object> MAVO_CONFIGS = new HashMap <>(  );
+    private static final HashMap<Object,Object> MAVO_CONFIGS = new HashMap <>(  );
     private static final ArrayList<IconFontDescriptor> ICOINS = new ArrayList <>(  );
+    private static final ArrayList<Interceptor> INTERCEPTOR = new ArrayList <>(  );
 
 
     private Configurator(){
@@ -27,7 +30,7 @@ public class Configurator {
         return Holder.INSTANCE;
     }
 
-    final HashMap<String,Object> getMavoConfigs(){
+    final HashMap<Object,Object> getMavoConfigs(){
 
         return MAVO_CONFIGS;
     }
@@ -81,6 +84,22 @@ public class Configurator {
     public final Configurator withIcon(IconFontDescriptor descriptor){
 
         ICOINS.add( descriptor );
+
+        return this;
+    }
+
+    public final Configurator withInterceptor(Interceptor interceptor){
+
+        INTERCEPTOR.add( interceptor );
+        MAVO_CONFIGS.put( ConfigType.INTERCEPTOR.name(),INTERCEPTOR );
+
+        return this;
+    }
+
+    public final Configurator withInterceptors(ArrayList<Interceptor> interceptors){
+
+        INTERCEPTOR.addAll( interceptors );
+        MAVO_CONFIGS.put( ConfigType.INTERCEPTOR.name(),INTERCEPTOR );
 
         return this;
     }

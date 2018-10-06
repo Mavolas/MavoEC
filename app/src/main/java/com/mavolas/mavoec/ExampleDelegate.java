@@ -31,13 +31,13 @@ public class ExampleDelegate extends MavoDelegate {
     private void testRestClient(){
 
         RestClient.builder()
-                .url( "http://news.baidu.com" )
+                .url( "http://127.0.0.1/index" )
                 .loader( getContext() )
                 .success( new ISuccess( ) {
                     @Override
                     public void onSuccess(String response) {
 
-                       // Toast.makeText( getContext(),response,Toast.LENGTH_LONG ).show();
+                       Toast.makeText( getContext(),response,Toast.LENGTH_LONG ).show();
 
                     }
                 } )

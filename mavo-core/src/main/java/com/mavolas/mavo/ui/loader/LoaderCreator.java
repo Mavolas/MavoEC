@@ -1,4 +1,4 @@
-package com.mavolas.mavo.ui;
+package com.mavolas.mavo.ui.loader;
 
 import android.content.Context;
 

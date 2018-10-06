@@ -6,7 +6,7 @@ import com.mavolas.mavo.net.callback.IError;
 import com.mavolas.mavo.net.callback.IFailure;
 import com.mavolas.mavo.net.callback.IRequest;
 import com.mavolas.mavo.net.callback.ISuccess;
-import com.mavolas.mavo.ui.LoaderStyle;
+import com.mavolas.mavo.ui.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.Map;
