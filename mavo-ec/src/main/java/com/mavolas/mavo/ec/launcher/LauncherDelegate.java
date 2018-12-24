@@ -50,7 +50,6 @@ public class LauncherDelegate extends MavoDelegate implements ITimerListener {
         mTimer.schedule( task,0,1000 );
     }
 
-
     @Override
     public Object setLayout() {
         return R.layout.delegate_launcher;

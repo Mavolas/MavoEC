@@ -57,6 +57,12 @@ public class ExampleDelegate extends MavoDelegate {
                 .get();
 
 
+        RestClient.builder()
+                .url( "http://127.0.0.1/index" )
+                .build()
+                .download();
+
+
 
     }
 }
