@@ -9,6 +9,7 @@ import android.view.View;
 import com.mavolas.mavo.delegates.MavoDelegate;
 import com.mavolas.mavo.ec.R;
 import com.mavolas.mavo.ec.R2;
+import com.mavolas.mavo.ec.main.MavoBottomDelegate;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -29,6 +30,7 @@ public class SignInDelegate extends MavoDelegate {
 
         if ( checkForm() ){
 
+            startWithPop(new MavoBottomDelegate());
 
         }
     }
