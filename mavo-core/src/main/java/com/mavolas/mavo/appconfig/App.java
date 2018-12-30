@@ -1,6 +1,7 @@
 package com.mavolas.mavo.appconfig;
 
 import android.content.Context;
+import android.os.Handler;
 
 import java.util.HashMap;
 
@@ -33,5 +34,9 @@ public final class App {
 
     public static Context getApplicationContext() {
         return getConfiguration(ConfigType.APPLICATION_CONTEXT);
+    }
+
+    public static Handler getHandler() {
+        return getConfiguration(ConfigType.HANDLER);
     }
 }

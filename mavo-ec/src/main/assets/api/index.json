@@ -1,0 +1,63 @@
+{
+  "code":0,
+  "message":"OK",
+  "total":100,
+  "page_size":6,
+  "data":[
+    {
+      "goodsId":0,
+      "spanSize":4,
+      "banners":[
+        "https://img.zcool.cn/community/01220a584e63aca8012060c8ffa551.jpg@2o.jpg",
+        "https://img.zcool.cn/community/01a1b6584e63aca801219c778ce78d.jpg@2o.jpg",
+        "https://img.zcool.cn/community/011717589599daa801219c773fd9b3.jpg@2o.jpg"
+      ]
+    },
+    {
+      "goodsId":1,
+      "text":"测试描述1",
+      "imageUrl":"http://pic.58pic.com/58pic/12/20/75/63S58PICvgT.jpg",
+      "spanSzie":4
+
+    },
+    {
+      "goodsId":2,
+      "text":"测试描述2",
+      "imageUrl":"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1546348746&di=f93dd6b022cf2f74672b31379363bc1c&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.cmpy.cn%2FUpfiles%2Fnews%2F2014715164718474.jpg",
+      "spanSzie":2
+
+    },
+    {
+      "goodsId":3,
+      "text":"测试描述3",
+      "imageUrl":"http://pic.58pic.com/58pic/12/20/75/63S58PICvgT.jpg",
+      "spanSzie":2
+
+    },
+    {
+      "goodsId":4,
+      "imageUrl":"http://pic.58pic.com/58pic/12/20/75/63S58PICvgT.jpg",
+      "spanSzie":2
+
+    },
+    {
+      "goodsId":4,
+      "imageUrl":"http://pic.58pic.com/58pic/12/20/75/63S58PICvgT.jpg",
+      "spanSzie":2
+
+    },
+    {
+      "goodsId":5,
+      "text":"我也野广告",
+      "spanSzie":2
+
+    },
+    {
+      "goodsId":4,
+      "text":"测试描述5",
+      "imageUrl":"http://pic.58pic.com/58pic/12/20/75/63S58PICvgT.jpg",
+      "spanSzie":2
+
+    }
+  ]
+}

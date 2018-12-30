@@ -10,6 +10,7 @@ public enum ConfigType {
     APPLICATION_CONTEXT,
     CONFIG_READY,
     ICON,
-    INTERCEPTOR
+    INTERCEPTOR,
+    HANDLER
 
 }

@@ -7,9 +7,11 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.mavolas.mavo.activitys.ProxyActivity;
+import com.mavolas.mavo.bottom.BottomItemDelegate;
 import com.mavolas.mavo.delegates.MavoDelegate;
 import com.mavolas.mavo.ec.launcher.LauncherDelegate;
 import com.mavolas.mavo.ec.launcher.LauncherScrollDelegate;
+import com.mavolas.mavo.ec.main.MavoBottomDelegate;
 import com.mavolas.mavo.ec.sign.SignUpDelegate;
 
 public class ExampleActivity extends ProxyActivity {
@@ -26,6 +28,6 @@ public class ExampleActivity extends ProxyActivity {
 
     @Override
     public MavoDelegate setRootDelegate() {
-        return new SignUpDelegate();
+        return new MavoBottomDelegate();
     }
 }
